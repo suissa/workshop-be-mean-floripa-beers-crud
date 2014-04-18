@@ -1,0 +1,35 @@
+extends ../layout
+
+block content
+  h1= "Cadastro de Cerveja"
+
+  h2 
+    |{{ msg }}
+
+  form(method="post")
+    div
+      label Name:
+      input(type="text", name="name", data-ng-model='form.name')
+    div
+      label Description:
+      input(type="text", name="description", data-ng-model='form.description')
+    div
+      label Alcohol:
+      input(type="number", name="alcohol", data-ng-model='form.alcohol')
+    div
+      label Style:
+      input(type="text", name="style", data-ng-model='form.style')
+    div
+      label Brewery:
+      input(type="text", name="brewery", data-ng-model='form.brewery')
+    div
+      label Category:
+      input(type="text", name="category", data-ng-model='form.category')
+    div
+      label Country:
+      input(type="text", name="country", data-ng-model='form.country')
+    div
+      button(data-ng-click='create(form)') CADASTRAR
+
+  br
+  a(href="/beers") Cancel

@@ -1,6 +1,6 @@
 extends layout
 
-block body
+block content
   div(ng-controller='AppCtrl')
     h2 Hello {{name}}
     ul.menu
@@ -8,6 +8,8 @@ block body
         a(href='view1') view1
       li
         a(href='view2') view2
+      li
+        a(href='beers') beers
 
     div(ng-view)
 

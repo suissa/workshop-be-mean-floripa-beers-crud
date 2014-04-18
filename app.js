@@ -6,10 +6,9 @@
 var express = require('express'),
   routes = require('./routes'),
   api = require('./routes/api'),
+  beer = require('./routes/beer'),
   http = require('http'),
   path = require('path');
-
-var Beer = require('./models/beer').model;
 
 var app = module.exports = express();
 
@@ -51,17 +50,12 @@ app.get('/expose/:dir/:name', routes.expose);
 // JSON API
 app.get('/api/name', api.name);
 
-app.get('/api/beers', function(req, res){
-
-  Beer.find({}, function(err, data){
-    if(err){
-      res.send(400, 'ERRO');
-    }
-    else {
-      res.json(data);
-    }
-  })
-});
+// API
+app.post('/api/beers', beer.create);
+app.get('/api/beers', beer.retrieve);
+app.get('/api/beers/:id', beer.findOne);
+app.put('/api/beers/:id', beer.update);
+app.delete('/api/beers/:id', beer.delete);
 
 // redirect all others to the index (HTML5 history)
 app.get('*', routes.index);

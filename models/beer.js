@@ -14,13 +14,12 @@ var Schema = mongoose.Schema;
 var BeerSchema = new Schema({
   name: { type: String, default: '' },
   description: { type: String, default: '' },
-  alcohol: { type: Number, min: 0},
-  category: { type: String, default: ''},
-  created: { type: Date, default: Date.now },
+  alcohol: { type: Number, min: 0 },
+  style: { type: String, default: '' },
+  brewery: { type: String, default: '' },
+  category: { type: String, default: '' },
+  country: { type: String, default: '' },
+  created: { type: Date, default: Date.now }
 });
 
-var Beer = exports.model = mongoose.model('Beer', BeerSchema);
-
-
-
-
+exports.model = mongoose.model('Beer', BeerSchema);

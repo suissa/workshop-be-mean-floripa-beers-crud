@@ -11,8 +11,16 @@ angular.module('myApp', [
 config(function ($routeProvider, $locationProvider) {
   $routeProvider.
     when('/beers', {
-      templateUrl: 'expose/beers/index',
+      templateUrl: '/expose/beers/index',
       controller: 'BeerIndexController'
+    }).
+    when('/beers/new', {
+      templateUrl: '/expose/beers/new',
+      controller: 'BeerNewController'
+    }).
+    when('/beers/:id', {
+      templateUrl: '/expose/beers/edit',
+      controller: 'BeerUpdateController'
     }).
     when('/view1', {
       templateUrl: 'partials/partial1',
